@@ -4,6 +4,9 @@ services:
     build: ./frontend
     ports:
       - "3000:3000"
+    entrypoint: "npm run dev"
+    volumes:
+      - ./frontend:/app
   backend:
     build: ./backend
     ports:

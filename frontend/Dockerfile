@@ -10,4 +10,4 @@ ENV PORT=$PORT
 # 明示化のためだけであり 実際に port 3000 を開くわけではない (別途 -p 3000:3000 でポートを開く必要がある)
 EXPOSE $PORT
 
-ENTRYPOINT ["npm", "run", "dev"]
+ENTRYPOINT ["npm", "start"]
