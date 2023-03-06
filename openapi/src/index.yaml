@@ -1,31 +1,11 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Default Swagger
-  description: Default Swagger Description
+  title: Seruhu Swagger
+  description: Seruhu Swagger Specification
 servers:
   - url: "http://localhost:3000/api/v1"
-paths:
-  /test:
-    get:
-      summary: GET test
-      description: Test API
-      operationId: getTest
-      responses:
-        200:
-          description: レスポンスサンプル
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  hoge:
-                    type: string
-                    example: hoge
-                  fuga:
-                    type: string
-                    example: fuga
 
-externalDocs:
-  description: Swagger
-  url: http://swagger.io
+paths:
+  /me:
+    $ref: ./path/me.yaml

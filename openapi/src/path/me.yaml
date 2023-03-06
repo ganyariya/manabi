@@ -1,0 +1,17 @@
+get:
+  tags:
+    - user
+  summary: user info
+  description: Return user info after login
+  parameters:
+    - name: user_session_token
+      in: cookie
+      required: true
+      schema:
+        type: string
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            $ref: ../schema/user.yaml

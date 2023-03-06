@@ -1,0 +1,20 @@
+schema:
+  description: user entity
+  type: object
+  properties:
+    user_id:
+      type: string
+      format: string
+      example: b9f9b678-bce8-49a1-bca3-dbbc32259abf
+    user_name:
+      type: string
+      format: string
+      example: ganyariya
+    email:
+      type: string
+      format: string
+      example: user@example.com
+    hashed_password:
+      type: string
+      format: string
+      example: super-password
