@@ -11,6 +11,7 @@ services:
     build: ./backend
     ports:
       - "8080:80"
+  
   # redis:
   #   image: "redis:alpine"
 
@@ -21,7 +22,7 @@ services:
     volumes:
       - ./openapi/:/swagger
     environment:
-      SWAGGER_FILE: /swagger/src/index.yaml
+      SWAGGER_FILE: /swagger/dist/openapi.yaml
 
   swagger-ui:
     image: swaggerapi/swagger-ui
@@ -30,13 +31,22 @@ services:
     volumes:
       - ./openapi/:/swagger
     environment:
-      SWAGGER_JSON: /swagger/src/index.yaml
+      SWAGGER_JSON: /swagger/dist/openapi.yaml
 
-  # swagger-merger:
-  #   build:
-  #     context: .
-  #     dockerfile: ./openapi/swagger-merger/Dockerfile
-  #   command: >
-  #     watch 'swagger-merger -i /swagger/src/index.yaml -o /swagger/dist/swagger.yaml' /swagger/src/
-  #   volumes:
-  #     - ./openapi/:/swagger
+  openapi-mock-server:
+    image: stoplight/prism
+    ports:
+      - "4010:4010"
+    volumes:
+      - ./openapi/src:/work
+    command: >
+      mock -h localhost /work/index.yaml
+
+  swagger-merger:
+    build:
+      context: .
+      dockerfile: ./openapi/swagger-merger/Dockerfile
+    command: >
+      watch 'swagger-merger -i /swagger/src/index.yaml -o /swagger/dist/openapi.yaml' /swagger/src/
+    volumes:
+      - ./openapi/:/swagger
