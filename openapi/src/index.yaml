@@ -4,7 +4,13 @@ info:
   title: Seruhu Swagger
   description: Seruhu Swagger Specification
 servers:
-  - url: "http://localhost:3000/api/v1"
+  - url: "http://localhost:{port}/"
+    variables:
+      port:
+        default: "4010"
+        enum:
+          - "4010"
+          - "8080"
 
 paths:
   /me:

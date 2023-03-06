@@ -40,7 +40,7 @@ services:
     volumes:
       - ./openapi/src:/work
     command: >
-      mock -h localhost /work/index.yaml
+      mock -h 0.0.0.0 /work/index.yaml
 
   swagger-merger:
     build:
