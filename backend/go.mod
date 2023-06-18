@@ -1,4 +1,4 @@
-module github.com/ganyariya/seruhu/backend
+module github.com/ganyariya/manabi/backend
 
 go 1.20
 

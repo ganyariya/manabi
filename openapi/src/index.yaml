@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Seruhu Swagger
-  description: Seruhu Swagger Specification
+  title: manabi Swagger
+  description: manabi Swagger Specification
 servers:
   - url: "http://localhost:{port}/"
     variables:
